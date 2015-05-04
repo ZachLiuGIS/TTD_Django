@@ -1,9 +1,12 @@
+import sys
+import unittest
+import time
+
 from django.test import LiveServerTestCase
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import unittest
-import time
+
 
 class NewVisitorTest(StaticLiveServerTestCase):
 
