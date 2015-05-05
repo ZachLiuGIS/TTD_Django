@@ -1,1 +1,5 @@
-Django==1.8.1
+Django==1.8
+gunicorn==19.3.0
+Pillow==2.8.1
+selenium==2.45.0
+virtualenv==12.1.1
