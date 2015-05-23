@@ -25,7 +25,11 @@ SECRET_KEY = '!c6)$r!$s2fse64qlnog#k!iwo4c0d2ne9xl&5eo8iqp3mlkp5'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+#This setting is changed by the deploy script
+DOMAIN = "localhost"
+
+
+ALLOWED_HOSTS = [DOMAIN]
 
 
 # Application definition
@@ -113,6 +117,8 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'superlists', 'static'),
 )
 
+
+#Logging
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
