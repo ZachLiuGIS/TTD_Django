@@ -8,8 +8,6 @@ def create_session_on_server(host, email):
     return subprocess.check_output(
         [
             'fab',
-            '-i',
-            AWS_KEY,
             'create_session_on_server:email={}'.format(email),
             '--host={}'.format(host),
             '--hide=everything,status',
@@ -22,8 +20,6 @@ def reset_database(host):
     subprocess.check_call(
         [
             'fab',
-            '-i',
-            AWS_KEY,
             'reset_database', 
             '--host={}'.format(host)
         ],
