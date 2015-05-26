@@ -3,6 +3,8 @@ from django.http import HttpResponse
 from lists.models import Item, List
 from django.core.exceptions import ValidationError
 from lists.forms import ItemForm, ExistingListItemForm
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 def home_page(request):
     return render(request, 'home.html', {'form': ItemForm()})
@@ -27,4 +29,5 @@ def new_list(request):
         return render(request, 'home.html', {'form': form})
 
 def my_lists(request, email):
-    return render(request, 'my_lists.html')
+    owner = User.objects.get(email=email)
+    return render(request, 'my_lists.html', {'owner': owner})
