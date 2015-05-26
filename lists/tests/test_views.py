@@ -14,6 +14,7 @@ from lists.models import Item, List
 
 from lists.views import home_page
 
+@skip
 class HomePageTest(TestCase):
     maxDiff = None
 
@@ -164,3 +165,7 @@ class NewListTest(TestCase):
         response = self.client.post('/lists/new', data={'text': ''})
         self.assertIsInstance(response.context['form'], ItemForm)
 
+class MyListsTest(TestCase):
+    def test_my_lists_url_renders_my_lists_template(self):
+        response = self.client.get('/lists/users/a@b.com')
+        self.assertTemplateUsed(response, 'my_lists.html')
